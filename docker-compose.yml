@@ -1,0 +1,16 @@
+services:
+  safeconvert:
+    # GitHub Container Registry (Recommended)
+    # simple mode - ghcr.io/alam00000/safeconvert-simple:latest
+    # default mode - ghcr.io/alam00000/safeconvert:latest
+    # Docker Hub (Alternative)
+    # simple mode - safeconvertteam/safeconvert-simple:latest
+    # default mode - safeconvertteam/safeconvert:latest
+    image: ghcr.io/alam00000/safeconvert-simple:latest
+    container_name: safeconvert
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    # For IPv4-only environments
+    #environment:
+    #  - DISABLE_IPV6=true

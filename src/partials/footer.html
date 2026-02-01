@@ -1,0 +1,41 @@
+{{#if simpleMode}} {{> footer-simple}} {{else}}
+<footer class="mt-16 border-t-2 border-gray-700 py-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 gap-8 text-center md:text-left">
+      <div class="mb-8 md:mb-0">
+        <div class="flex items-center justify-center md:justify-start mb-4">
+          <img src="{{baseUrl}}images/favicon.svg" alt="SafeConvert Logo" class="h-10 w-10 mr-3" />
+          <span class="text-xl font-bold text-white">SafeConvert</span>
+        </div>
+        <p class="text-gray-400 text-sm" data-i18n="footer.copyright">&copy; 2026 SafeConvert.</p>
+        <p class="text-gray-500 text-xs mt-2">
+          <span data-i18n="footer.version">Version</span>
+          <span id="app-version"></span>
+        </p>
+        <p class="text-gray-400 text-xs mt-4">
+          <span data-i18n="footer.legalNotice">
+            Licensed under the GNU AGPL v3 or later. You may convey this program under this license.
+            No warranty.
+          </span>
+          <a
+            href="/license.txt"
+            class="ml-1 text-gray-300 underline hover:text-white"
+            rel="license"
+            data-i18n="footer.licenseLink"
+            >View License</a
+          >
+          <span class="mx-1">·</span>
+          <a
+            href="https://github.com/your-org/safeconvert"
+            class="text-gray-300 underline hover:text-white"
+            rel="noopener noreferrer"
+            target="_blank"
+            data-i18n="footer.sourceLink"
+            >Source Code</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+{{/if}}

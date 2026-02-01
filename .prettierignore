@@ -1,0 +1,9 @@
+dist
+node_modules
+vendor
+
+public/**/*.min.js
+public/**/*.min.css
+public/pdfjs-viewer/**
+public/pdfjs-annotation-viewer/**
+public/coherentpdf.browser.min.js

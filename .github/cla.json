@@ -1,0 +1,18 @@
+{
+  "name": "SafeConvert CLA",
+  "text": [
+    "Thank you for your contribution to SafeConvert!",
+    "",
+    "By signing this CLA, you agree to the terms of our Contributor Agreement.",
+    "",
+    "**Individual Contributors**: Please review and sign our [Individual CLA (ICLA)](ICLA.md)",
+    "",
+    "**Corporate Contributors**: If you are contributing on behalf of your employer, please have your organization sign our [Corporate CLA (CCLA)](CCLA.md) by contacting support@safeconvert.example"
+  ],
+  "notes": {
+    "purpose": "Contributor agreement for SafeConvert",
+    "icla_url": "https://github.com/alam00000/safeconvert/blob/main/ICLA.md",
+    "ccla_url": "https://github.com/alam00000/safeconvert/blob/main/CCLA.md",
+    "contact": "support@safeconvert.example"
+  }
+}
