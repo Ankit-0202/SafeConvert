@@ -15,9 +15,9 @@ export function resetRotationState() {
   rotationState.length = 0;
 }
 
-export function initializeRotationState(pageCount: number) {
-  rotationState.length = 0;
+export function initializeRotationState(pageCount: number, initialRotation: number = 0) {
+  resetRotationState();
   for (let i = 0; i < pageCount; i++) {
-    rotationState.push(0);
+    rotationState.push(initialRotation);
   }
 }

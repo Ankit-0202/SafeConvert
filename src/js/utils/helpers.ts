@@ -77,13 +77,57 @@ export const downloadFile = (blob: Blob, filename: string): void => {
   URL.revokeObjectURL(url);
 };
 
-export const readFileAsArrayBuffer = (file: any) => {
-  return new Promise((resolve, reject) => {
+export const readFileAsArrayBuffer = (file: File): Promise<ArrayBuffer> =>
+  new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
+    reader.onload = () => resolve(reader.result as ArrayBuffer);
+    reader.onerror = () => reject(reader.error);
     reader.readAsArrayBuffer(file);
   });
+
+export const escapeHtml = (input: string): string => {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/`/g, "&#96;");
+};
+
+export const uint8ArrayToBase64 = (bytes: Uint8Array): string => {
+  const chunkSize = 0x8000;
+  let binary = "";
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    const chunk = bytes.subarray(i, i + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  return btoa(binary);
+};
+
+export const sanitizeEmailHtml = (html: string): string => {
+  if (!html) return "";
+
+  const doc = new DOMParser().parseFromString(html, "text/html");
+
+  doc.querySelectorAll("script, style, iframe, object, embed, link, meta").forEach((el) => {
+    el.remove();
+  });
+
+  doc.querySelectorAll("*").forEach((el) => {
+    for (const attr of Array.from(el.attributes)) {
+      const name = attr.name.toLowerCase();
+      const value = attr.value.trim().toLowerCase();
+      if (name.startsWith("on")) {
+        el.removeAttribute(attr.name);
+      }
+      if ((name === "href" || name === "src") && value.startsWith("javascript:")) {
+        el.removeAttribute(attr.name);
+      }
+    }
+  });
+
+  return doc.body.innerHTML;
 };
 
 export function parsePageRanges(rangeString: string, totalPages: number): number[] {
@@ -128,7 +172,7 @@ export function parsePageRanges(rangeString: string, totalPages: number): number
  * @param {string} isoDateString - The ISO 8601 date string.
  * @returns {string} A localized date and time string, or the original string if parsing fails.
  */
-export function formatIsoDate(isoDateString) {
+export function formatIsoDate(isoDateString: string): string {
   if (!isoDateString || typeof isoDateString !== "string") {
     return isoDateString; // Return original value if it's not a valid string
   }
@@ -173,22 +217,6 @@ export async function initializeQpdf() {
   return qpdfInstance;
 }
 
-export function initializeIcons(): void {
-  createIcons({
-    attrs: {
-      class: "bento-icon",
-      "stroke-width": "1.5",
-    },
-  });
-}
-
-export function formatStars(num: number) {
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + "K";
-  }
-  return num.toLocaleString();
-}
-
 /**
  * Truncates a filename to a maximum length, adding ellipsis if needed.
  * Preserves the file extension.
@@ -212,33 +240,6 @@ export function truncateFilename(filename: string, maxLength: number = 25): stri
   }
 
   return nameWithoutExt.substring(0, availableLength) + "..." + extension;
-}
-
-export function formatShortcutDisplay(shortcut: string, isMac: boolean): string {
-  if (!shortcut) return "";
-  return shortcut
-    .replace("mod", isMac ? "⌘" : "Ctrl")
-    .replace("ctrl", isMac ? "^" : "Ctrl") // Control key on Mac shows as ^
-    .replace("alt", isMac ? "⌥" : "Alt")
-    .replace("shift", "Shift")
-    .split("+")
-    .map((k) => k.charAt(0).toUpperCase() + k.slice(1))
-    .join(isMac ? "" : "+");
-}
-
-export function resetAndReloadTool(preResetCallback?: () => void) {
-  const toolid = state.activeTool;
-
-  if (preResetCallback) {
-    preResetCallback();
-  }
-
-  resetState();
-
-  if (toolid) {
-    const element = document.querySelector(`[data-tool-id="${toolid}"]`) as HTMLElement;
-    if (element) element.click();
-  }
 }
 
 /**
@@ -269,101 +270,6 @@ export function getPDFDocument(src: any) {
     ...params,
     wasmUrl: import.meta.env.BASE_URL + "pdfjs-viewer/wasm/",
   });
-}
-
-/**
- * Escape HTML special characters to prevent XSS
- * @param text - The text to escape
- * @returns The escaped text
- */
-export function escapeHtml(text: string): string {
-  const map: Record<string, string> = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;",
-  };
-  return text.replace(/[&<>"']/g, (m) => map[m]);
-}
-
-export function uint8ArrayToBase64(bytes: Uint8Array): string {
-  const CHUNK_SIZE = 0x8000;
-  const chunks: string[] = [];
-  for (let i = 0; i < bytes.length; i += CHUNK_SIZE) {
-    const chunk = bytes.subarray(i, Math.min(i + CHUNK_SIZE, bytes.length));
-    chunks.push(String.fromCharCode(...chunk));
-  }
-  return btoa(chunks.join(""));
-}
-
-export function sanitizeEmailHtml(html: string): string {
-  if (!html) return html;
-
-  let sanitized = html;
-
-  sanitized = sanitized.replace(/<head[^>]*>[\s\S]*?<\/head>/gi, "");
-  sanitized = sanitized.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
-  sanitized = sanitized.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
-  sanitized = sanitized.replace(/<link[^>]*>/gi, "");
-  sanitized = sanitized.replace(/\s+style=["'][^"']*["']/gi, "");
-  sanitized = sanitized.replace(/\s+class=["'][^"']*["']/gi, "");
-  sanitized = sanitized.replace(/\s+data-[a-z-]+=["'][^"']*["']/gi, "");
-  sanitized = sanitized.replace(
-    /<img[^>]*(?:width=["']1["'][^>]*height=["']1["']|height=["']1["'][^>]*width=["']1["'])[^>]*\/?>/gi,
-    "",
-  );
-  sanitized = sanitized.replace(
-    /href=["']https?:\/\/[^"']*safelinks\.protection\.outlook\.com[^"']*url=([^&"']+)[^"']*["']/gi,
-    (match, encodedUrl) => {
-      try {
-        const decodedUrl = decodeURIComponent(encodedUrl);
-        return `href="${decodedUrl}"`;
-      } catch {
-        return match;
-      }
-    },
-  );
-  sanitized = sanitized.replace(/\s+originalsrc=["'][^"']*["']/gi, "");
-  sanitized = sanitized.replace(/href=["']([^"']{500,})["']/gi, (match, url) => {
-    const baseUrl = url.split("?")[0];
-    if (baseUrl && baseUrl.length < 200) {
-      return `href="${baseUrl}"`;
-    }
-    return `href="${url.substring(0, 200)}"`;
-  });
-
-  sanitized = sanitized.replace(
-    /\s+(cellpadding|cellspacing|bgcolor|border|valign|align|width|height|role|dir|id)=["'][^"']*["']/gi,
-    "",
-  );
-  sanitized = sanitized.replace(/<\/?table[^>]*>/gi, "<div>");
-  sanitized = sanitized.replace(/<\/?tbody[^>]*>/gi, "");
-  sanitized = sanitized.replace(/<\/?thead[^>]*>/gi, "");
-  sanitized = sanitized.replace(/<\/?tfoot[^>]*>/gi, "");
-  sanitized = sanitized.replace(/<tr[^>]*>/gi, "<div>");
-  sanitized = sanitized.replace(/<\/tr>/gi, "</div>");
-  sanitized = sanitized.replace(/<td[^>]*>/gi, "<span> ");
-  sanitized = sanitized.replace(/<\/td>/gi, " </span>");
-  sanitized = sanitized.replace(/<th[^>]*>/gi, "<strong> ");
-  sanitized = sanitized.replace(/<\/th>/gi, " </strong>");
-  sanitized = sanitized.replace(/<div>\s*<\/div>/gi, "");
-  sanitized = sanitized.replace(/<span>\s*<\/span>/gi, "");
-  sanitized = sanitized.replace(/(<div>)+/gi, "<div>");
-  sanitized = sanitized.replace(/(<\/div>)+/gi, "</div>");
-  sanitized = sanitized.replace(/<a[^>]*href=["']\s*["'][^>]*>([^<]*)<\/a>/gi, "$1");
-
-  const MAX_HTML_SIZE = 100000;
-  if (sanitized.length > MAX_HTML_SIZE) {
-    const truncateAt = sanitized.lastIndexOf("</div>", MAX_HTML_SIZE);
-    if (truncateAt > MAX_HTML_SIZE / 2) {
-      sanitized = sanitized.substring(0, truncateAt) + "</div></body></html>";
-    } else {
-      sanitized = sanitized.substring(0, MAX_HTML_SIZE) + "...</body></html>";
-    }
-  }
-
-  return sanitized;
 }
 
 /**
@@ -423,4 +329,28 @@ export function formatRawDate(raw: string): string {
     // Fallback to raw string if parsing fails
   }
   return raw;
+}
+
+export function formatShortcutDisplay(shortcut: string, isMac: boolean): string {
+  if (!shortcut) return "";
+
+  const parts = shortcut.split("+").map((part) => part.trim().toLowerCase());
+
+  const macMap: Record<string, string> = {
+    mod: "⌘",
+    ctrl: "⌃",
+    shift: "⇧",
+    alt: "⌥",
+  };
+  const winMap: Record<string, string> = {
+    mod: "Ctrl",
+    ctrl: "Ctrl",
+    shift: "Shift",
+    alt: "Alt",
+  };
+
+  const map = isMac ? macMap : winMap;
+  const display = parts.map((part) => map[part] || part.toUpperCase());
+
+  return isMac ? display.join(" ") : display.join(" + ");
 }

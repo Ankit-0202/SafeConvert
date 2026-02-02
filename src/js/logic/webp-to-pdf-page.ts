@@ -194,11 +194,11 @@ async function convertToPdf() {
     const pdfDoc = await PDFLibDocument.create();
 
     for (const file of files) {
-      const originalBytes = await readFileAsArrayBuffer(file);
+      const originalBytes = new Uint8Array(await readFileAsArrayBuffer(file));
       let jpgImage;
 
       try {
-        jpgImage = await pdfDoc.embedJpg(originalBytes as Uint8Array);
+        jpgImage = await pdfDoc.embedJpg(originalBytes);
       } catch (e) {
         showAlert(
           "Warning",

@@ -230,5 +230,3 @@ export const rewriteLinks = (): void => {
     link.setAttribute("href", newHref);
   });
 };
-
-export default i18next;
