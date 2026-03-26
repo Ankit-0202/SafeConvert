@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About SafeConvert - Our Mission, Privacy, and How It Works</title>
+    <meta
+      name="description"
+      content="Learn about SafeConvert, the free privacy-first PDF toolkit. Discover how our browser-based tools work, why we built them, and our commitment to keeping your data safe."
+    />
+    <meta name="author" content="SafeConvert" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://safeconvert.vercel.app/about.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://safeconvert.vercel.app/about" />
+    <meta property="og:title" content="About SafeConvert - Our Mission and How It Works" />
+    <meta
+      property="og:description"
+      content="Learn about SafeConvert, the free privacy-first PDF toolkit. Discover how our browser-based tools work and our commitment to privacy."
+    />
+    <meta property="og:image" content="https://safeconvert.vercel.app/images/og-home.png" />
+    <meta property="og:site_name" content="SafeConvert" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About SafeConvert - Our Mission and How It Works" />
+    <meta
+      name="twitter:description"
+      content="Learn about SafeConvert, the free privacy-first PDF toolkit. Discover how our browser-based tools work and our commitment to privacy."
+    />
+    <meta name="twitter:image" content="https://safeconvert.vercel.app/images/og-home.png" />
+
+    <link href="/src/css/styles.css" rel="stylesheet" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1377565958786123"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="antialiased bg-gray-900 text-gray-300">
+    {{> navbar }}
+
+    <div id="app" class="container mx-auto p-4 md:p-8">
+      <section class="max-w-4xl mx-auto py-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-white mb-4">
+          About SafeConvert
+        </h1>
+        <p class="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-12">
+          A free, open-source PDF toolkit built with one principle above all else: your files should
+          never leave your device.
+        </p>
+
+        <div class="legal-content mt-8">
+          <h2>Our Mission</h2>
+          <p>
+            SafeConvert was created to solve a problem that millions of people face every day: the
+            need to work with PDF files without sacrificing privacy. Traditional online PDF services
+            require you to upload your documents to remote servers, where they may be stored,
+            analyzed, or even accessed by unauthorized parties. We believe there is a better way.
+          </p>
+          <p>
+            Our mission is to provide a comprehensive suite of PDF tools that are completely free to
+            use, require no account registration, and process every single file entirely within your
+            web browser. When you use SafeConvert, your documents never leave your computer. There
+            is no server upload, no cloud processing, and no data retention. This is not just a
+            feature; it is the fundamental architecture of our application.
+          </p>
+
+          <h2>How SafeConvert Works</h2>
+          <p>
+            Unlike traditional online PDF tools that send your files to a server for processing,
+            SafeConvert uses modern web technologies to handle everything locally on your device.
+            Here is a step-by-step explanation of what happens when you use one of our tools:
+          </p>
+          <ol class="list-decimal list-inside space-y-3 my-4">
+            <li>
+              <strong>You select a file.</strong> When you drag and drop or choose a PDF from your
+              computer, the file is read directly by your web browser using the File API. It stays
+              in your browser's memory and is never transmitted anywhere.
+            </li>
+            <li>
+              <strong>Processing begins locally.</strong> Our tools are powered by JavaScript and
+              WebAssembly (WASM) libraries such as PDF-lib.js, PDF.js, and PDFKit.js. These
+              libraries run entirely within your browser, performing tasks like merging, splitting,
+              compressing, and converting your PDFs at native speeds.
+            </li>
+            <li>
+              <strong>You download the result.</strong> Once processing is complete, the output file
+              is generated in your browser and offered as a download. The file goes directly from
+              your browser to your downloads folder, still without ever touching a server.
+            </li>
+            <li>
+              <strong>Memory is cleared.</strong> After you download the result or navigate away,
+              the browser releases the memory used during processing. No trace of your document
+              remains.
+            </li>
+          </ol>
+          <p>
+            This client-side approach means SafeConvert works even when you are offline. Once the
+            application has been loaded in your browser, you can disconnect from the internet and
+            continue using most tools without interruption.
+          </p>
+
+          <h2>Why Privacy Matters for PDF Tools</h2>
+          <p>
+            PDF documents frequently contain some of the most sensitive information people handle:
+            financial statements, medical records, legal contracts, personal identification
+            documents, tax returns, and confidential business reports. When you upload these files
+            to a traditional online PDF service, you are trusting that company with your most
+            private data.
+          </p>
+          <p>
+            Even services that promise to delete your files after processing still receive and
+            temporarily store them on their servers. This creates multiple points of vulnerability:
+            during the upload, during server-side processing, and during the deletion process. Data
+            breaches at cloud services are unfortunately common, and once your files are uploaded,
+            you lose control over them.
+          </p>
+          <p>
+            SafeConvert eliminates this risk entirely. Because your files never leave your device,
+            there is nothing for us to breach, nothing to delete, and nothing to mishandle. Your
+            privacy is guaranteed by the architecture itself, not by a promise.
+          </p>
+
+          <h2>The Technology Behind SafeConvert</h2>
+          <p>
+            SafeConvert is built using a carefully chosen stack of modern, open-source web
+            technologies:
+          </p>
+          <ul>
+            <li>
+              <strong>PDF-lib.js</strong> is the primary library we use for creating and modifying
+              PDF documents. It can merge PDFs, add pages, embed fonts, draw text and images, and
+              much more, all without a server.
+            </li>
+            <li>
+              <strong>PDF.js</strong>, developed by Mozilla, is used for rendering and reading PDF
+              files in the browser. It powers our PDF viewer and is the same library used by Firefox
+              to display PDFs.
+            </li>
+            <li>
+              <strong>WebAssembly (WASM)</strong> allows us to run high-performance compiled code
+              directly in your browser. We use WASM modules for intensive tasks like PDF compression
+              and OCR (Optical Character Recognition), achieving speeds comparable to native desktop
+              applications.
+            </li>
+            <li>
+              <strong>Vite</strong> and <strong>TypeScript</strong> form the foundation of our build
+              system and codebase, ensuring the application is fast, reliable, and maintainable.
+            </li>
+            <li>
+              <strong>Tailwind CSS</strong> provides the responsive, modern user interface that
+              adapts to any screen size, from mobile phones to desktop monitors.
+            </li>
+          </ul>
+
+          <h2>What You Can Do with SafeConvert</h2>
+          <p>
+            SafeConvert offers over 100 individual PDF tools organized into several categories. Here
+            is an overview of what you can accomplish:
+          </p>
+          <ul>
+            <li>
+              <strong>Merge and Split:</strong> Combine multiple PDF files into one document, or
+              split a single PDF into separate pages or sections. You can also alternate-merge pages
+              from two documents, extract specific page ranges, and organize pages in any order.
+            </li>
+            <li>
+              <strong>Convert:</strong> Transform PDFs to and from dozens of formats, including Word
+              (DOCX), Excel, PowerPoint, JPG, PNG, SVG, Markdown, CSV, and many more. You can also
+              convert ebooks (EPUB, MOBI) and office formats (ODT, ODS) to PDF.
+            </li>
+            <li>
+              <strong>Edit:</strong> Add text, images, watermarks, headers, footers, page numbers,
+              stamps, and signatures to your PDFs. You can also change background colors, invert
+              colors, crop pages, and annotate documents.
+            </li>
+            <li>
+              <strong>Compress:</strong> Reduce the file size of your PDFs without significant
+              quality loss. Our compression tool uses intelligent algorithms to optimize images,
+              fonts, and document structure.
+            </li>
+            <li>
+              <strong>Secure:</strong> Encrypt PDFs with passwords, decrypt protected files, change
+              permissions, digitally sign documents, and sanitize sensitive metadata. You can also
+              remove restrictions from PDFs.
+            </li>
+            <li>
+              <strong>Organize:</strong> Reorder pages, reverse page order, delete unwanted pages,
+              add blank pages, and create booklets. Our organize tool provides a visual
+              drag-and-drop interface.
+            </li>
+            <li>
+              <strong>Analyze:</strong> View and edit metadata, inspect page dimensions, compare two
+              PDFs side by side, extract tables and images, and validate digital signatures.
+            </li>
+          </ul>
+
+          <h2>Open Source and Community</h2>
+          <p>
+            SafeConvert is open-source software licensed under the GNU Affero General Public License
+            v3 (AGPL-3.0). This means the complete source code is publicly available on
+            <a
+              href="https://github.com/Ankit-0202/SafeConvert"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-indigo-400 hover:underline"
+              >GitHub</a
+            >. Anyone can inspect the code to verify our privacy claims, report issues, suggest
+            improvements, or contribute new features.
+          </p>
+          <p>
+            We believe that transparency is essential for trust, especially when it comes to tools
+            that handle sensitive documents. By making our code open source, we invite the global
+            developer community to hold us accountable and help us improve.
+          </p>
+
+          <h2>Self-Hosting</h2>
+          <p>
+            Because SafeConvert is open source, you can host your own instance on your own
+            infrastructure. We provide detailed deployment guides for popular platforms including
+            Docker, Vercel, Netlify, Cloudflare Pages, AWS, Nginx, Apache, and Kubernetes. Whether
+            you are an individual who wants full control or an organization with strict data
+            governance requirements, self-hosting gives you complete ownership of the application.
+          </p>
+
+          <h2>Our Commitment to You</h2>
+          <p>
+            SafeConvert will always be free. There are no premium tiers, no usage limits, no file
+            size restrictions, and no features locked behind a paywall. We sustain the project
+            through minimal, non-intrusive advertising that does not compromise your experience or
+            privacy.
+          </p>
+          <p>
+            We are committed to continuously improving SafeConvert by adding new tools, improving
+            existing ones, and keeping up with the latest web standards. If you have feedback,
+            feature requests, or want to report a bug, we encourage you to reach out through our
+            <a href="/contact" class="text-indigo-400 hover:underline">Contact page</a>
+            or open an issue on
+            <a
+              href="https://github.com/Ankit-0202/SafeConvert/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-indigo-400 hover:underline"
+              >GitHub</a
+            >.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    {{> footer }}
+    <script type="module" src="src/js/utils/lucide-init.ts"></script>
+    <script type="module" src="src/version.ts"></script>
+    <script type="module" src="src/js/mobileMenu.ts"></script>
+    <script type="module" src="src/js/main.ts"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About SafeConvert",
+        "description": "Learn about SafeConvert, the free privacy-first PDF toolkit. Discover how our browser-based tools work and our commitment to privacy.",
+        "url": "https://safeconvert.vercel.app/about",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "SafeConvert",
+          "url": "https://safeconvert.vercel.app",
+          "logo": "https://safeconvert.vercel.app/images/favicon.svg",
+          "description": "Free, open-source, privacy-first PDF toolkit that processes files entirely in your browser.",
+          "foundingDate": "2025",
+          "sameAs": ["https://github.com/Ankit-0202/SafeConvert"]
+        }
+      }
+    </script>
+  </body>
+</html>

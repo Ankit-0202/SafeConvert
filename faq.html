@@ -3,19 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Primary Meta Tags -->
     <title>FAQ - Frequently Asked Questions | SafeConvert</title>
     <meta
       name="description"
-      content="Find answers to common questions about SafeConvert. Learn about privacy, features, file limits, and how our browser-based PDF tools work."
+      content="Find answers to common questions about SafeConvert. Learn about privacy, features, file limits, browser compatibility, troubleshooting, and how our browser-based PDF tools work."
     />
     <meta name="author" content="SafeConvert" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://safeconvert.vercel.app/faq.html" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://safeconvert.vercel.app/faq" />
     <meta property="og:title" content="FAQ - Frequently Asked Questions | SafeConvert" />
@@ -26,7 +23,6 @@
     <meta property="og:image" content="https://safeconvert.vercel.app/images/og-faq.png" />
     <meta property="og:site_name" content="SafeConvert" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FAQ - Frequently Asked Questions | SafeConvert" />
     <meta
@@ -35,13 +31,8 @@
     />
     <meta name="twitter:image" content="https://safeconvert.vercel.app/images/twitter-faq.png" />
 
-    <title>FAQ - Frequently Asked Questions | SafeConvert</title>
     <link href="/src/css/styles.css" rel="stylesheet" />
-
-    <!-- Web App Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png" />
@@ -61,139 +52,507 @@
       <section id="faq-hero" class="text-center py-16 md:py-24">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
         <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-          Have questions? We've got answers. Here are some of the most common things people ask
-          about SafeConvert.
+          Have questions? We have answers. Below you will find detailed information about how
+          SafeConvert works, what makes it different from other PDF tools, and how to get the most
+          out of our features.
         </p>
       </section>
 
-      <div class="max-w-4xl mx-auto space-y-4">
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">Are my files safe and private?</h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              <strong>Absolutely.</strong> This is the most important feature of SafeConvert. All
-              processing happens 100% locally in your web browser. Your files are never uploaded to
-              any server, which means we—or anyone else—can never see them. Your privacy is
-              guaranteed.
-            </p>
-          </div>
-        </details>
+      <div class="max-w-4xl mx-auto">
+        <!-- Privacy & Security Section -->
+        <h2 class="text-2xl font-bold text-white mb-6 mt-8">Privacy and Security</h2>
+        <div class="space-y-4 mb-12">
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Are my files safe and private?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                <strong>Absolutely.</strong> This is the most important feature of SafeConvert. All
+                processing happens 100% locally in your web browser. Your files are never uploaded
+                to any server, which means we, or anyone else, can never see them. Your privacy is
+                guaranteed by the fundamental architecture of the application, not by a promise.
+              </p>
+            </div>
+          </details>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">
-              Is SafeConvert really free? What's the catch?
-            </h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              Yes, it's completely free, and there's no catch. There are no hidden fees, no
-              subscription plans, no usage limits, and no premium-only features. We believe
-              essential tools should be accessible to everyone.
-            </p>
-          </div>
-        </details>
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                How is SafeConvert different from other online PDF tools?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Most online PDF services, such as iLovePDF, Smallpdf, or Adobe Acrobat online,
+                require you to upload your files to their servers for processing. Your documents
+                travel over the internet, are processed on remote machines, and are then sent back
+                to you. Even if they promise to delete your files, your data has already been
+                transmitted and temporarily stored.
+              </p>
+              <p class="mt-2">
+                SafeConvert is fundamentally different. Our tools are powered by JavaScript and
+                WebAssembly libraries that run entirely within your web browser. When you select a
+                file, it is read by your browser's File API and processed using local CPU power. The
+                result is generated directly in your browser's memory and offered as a download. At
+                no point does any data leave your computer. This makes SafeConvert the safest option
+                for handling sensitive documents like financial records, legal contracts, medical
+                files, or personal identification documents.
+              </p>
+            </div>
+          </details>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">
-              Do I need an internet connection to use the tools?
-            </h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              After you load the website for the first time, most tools will work completely
-              offline! Because all the processing libraries are loaded into your browser, you can
-              disconnect from the internet and continue to merge, split, compress, and edit your
-              PDFs securely. Some niche tools that require external data (like Markdown to PDF with
-              web images) may need a connection.
-            </p>
-          </div>
-        </details>
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Can you see the files I process?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                No. It is technically impossible for us to see, access, or store your files. Because
+                all processing happens in your browser, your documents never leave your device. We
+                have no server infrastructure designed to receive, process, or store user files. You
+                can verify this by using SafeConvert with your browser's network inspector open. You
+                will see that no file data is transmitted to any external server.
+              </p>
+            </div>
+          </details>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">
-              Are there any file size or usage limitations?
-            </h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              No, we do not impose any artificial limits on file size, the number of files, or how
-              many times you can use a tool. The only practical limitation is the processing power
-              and memory of your own computer, as very large or complex files may take longer to
-              process.
-            </p>
-          </div>
-        </details>
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Do you track my activity on SafeConvert?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                We care deeply about your privacy. SafeConvert uses
+                <a
+                  href="https://simpleanalytics.com"
+                  class="text-indigo-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Simple Analytics</a
+                >
+                solely to see anonymous visit counts. This means we can know how many users visit
+                our site, but <strong>we never know who you are</strong>. Simple Analytics does not
+                use cookies, does not track individual users across sessions, and is fully
+                GDPR-compliant. We do not collect personal information, device fingerprints, or
+                browsing history.
+              </p>
+            </div>
+          </details>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">Why did my PDF fail to process?</h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>Failures are rare but can happen for a few reasons:</p>
-            <ul class="list-disc list-inside mt-2 space-y-1">
-              <li>The PDF might be corrupted or not compliant with standard specifications.</li>
-              <li>
-                The file could be encrypted with a password you don't have. Please use our Decrypt
-                tool first.
-              </li>
-              <li>
-                The file might be a special "XFA" or dynamic form-based PDF, which some of our tools
-                cannot process.
-              </li>
-            </ul>
-          </div>
-        </details>
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Is it safe to process confidential or sensitive documents?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes. SafeConvert is specifically designed for this use case. Because your files
+                never leave your device, there is no risk of interception during upload, no risk of
+                data breach on a server, and no risk of unauthorized access. This makes SafeConvert
+                suitable for processing tax returns, medical records, legal agreements, financial
+                statements, HR documents, and any other confidential material. For additional peace
+                of mind, you can disconnect from the internet after the page has loaded and continue
+                using most tools completely offline.
+              </p>
+            </div>
+          </details>
+        </div>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">
-              Do you track my activity on SafeConvert?
-            </h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              We care about your privacy. SafeConvert does not track personal information. We use
-              <a
-                href="https://simpleanalytics.com"
-                class="text-indigo-400 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Simple Analytics</a
-              >
-              solely to see anonymous visit counts. This means we can know how many users visit our
-              site, but
-              <strong>we never know who you are</strong>. Simple Analytics is fully GDPR-compliant
-              and respects your privacy.
-            </p>
-          </div>
-        </details>
+        <!-- Pricing & Features Section -->
+        <h2 class="text-2xl font-bold text-white mb-6">Pricing and Features</h2>
+        <div class="space-y-4 mb-12">
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Is SafeConvert really free? What is the catch?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes, it is completely free, and there is no catch. There are no hidden fees, no
+                subscription plans, no usage limits, and no premium-only features. Every tool is
+                available to every user without restrictions. SafeConvert is an open-source project
+                sustained through minimal, non-intrusive advertising. We believe essential tools for
+                working with PDFs should be accessible to everyone, regardless of their budget.
+              </p>
+            </div>
+          </details>
 
-        <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer">
-            <h3 class="font-semibold text-white text-lg">What technology does SafeConvert use?</h3>
-            <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
-          </summary>
-          <div class="mt-4 text-gray-400">
-            <p>
-              SafeConvert is built on the power of modern web technologies. We primarily use
-              JavaScript libraries like
-              <strong>PDF-lib.js</strong> and <strong>PDFKit.js</strong> that are compiled to run
-              efficiently in your browser via WebAssembly. This allows for powerful, server-like
-              processing without your data ever leaving your machine.
-            </p>
-          </div>
-        </details>
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Are there any file size or usage limitations?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                No, we do not impose any artificial limits on file size, the number of files, or how
+                many times you can use a tool. You can merge 100 PDFs, compress a 500 MB document,
+                or convert thousands of pages without hitting any cap. The only practical limitation
+                is the processing power and available memory of your own computer, as very large or
+                complex files may take longer to process or require more RAM. If your browser runs
+                out of memory, try closing other tabs or using a device with more available memory.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Do I need to create an account or sign up?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                No. SafeConvert requires no account, no email address, and no personal information
+                of any kind. Simply visit the website and start using any tool immediately. There is
+                nothing to sign up for, no verification steps, and no profile to manage. This also
+                means we have no user database that could be compromised in a data breach.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                How many tools does SafeConvert offer?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                SafeConvert offers over 100 individual PDF tools. These include tools for merging,
+                splitting, compressing, converting, editing, signing, encrypting, organizing, and
+                analyzing PDF documents. We support conversion between PDFs and dozens of formats
+                including Word, Excel, PowerPoint, JPG, PNG, SVG, Markdown, CSV, EPUB, and many
+                more. You can browse the complete list on our
+                <a href="/tools" class="text-indigo-400 hover:underline">All Tools</a> page.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Technical Section -->
+        <h2 class="text-2xl font-bold text-white mb-6">Technical Details</h2>
+        <div class="space-y-4 mb-12">
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Do I need an internet connection to use the tools?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                After you load the website for the first time, most tools will work completely
+                offline. Because all the processing libraries are loaded into your browser, you can
+                disconnect from the internet and continue to merge, split, compress, and edit your
+                PDFs securely. SafeConvert includes a service worker that caches the application for
+                offline use. Some tools that rely on external resources, such as Markdown to PDF
+                with web-hosted images, or tools requiring WASM modules that have not yet been
+                cached, may need a connection for the initial load.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                What technology does SafeConvert use?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                SafeConvert is built on modern web technologies. We primarily use JavaScript
+                libraries like <strong>PDF-lib.js</strong> for creating and modifying PDFs, and
+                <strong>PDF.js</strong> (developed by Mozilla) for rendering and reading PDF
+                content. For computationally intensive tasks like compression and OCR, we use
+                <strong>WebAssembly (WASM)</strong> modules that run at near-native speeds in your
+                browser. The application is built with <strong>TypeScript</strong>,
+                <strong>Vite</strong>, and <strong>Tailwind CSS</strong> for a fast, responsive
+                experience. The entire codebase is open source and available on
+                <a
+                  href="https://github.com/Ankit-0202/SafeConvert"
+                  class="text-indigo-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Which web browsers are supported?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                SafeConvert works in all modern web browsers that support JavaScript and
+                WebAssembly. This includes Google Chrome, Mozilla Firefox, Microsoft Edge, Apple
+                Safari, Opera, and Brave. We recommend using the latest version of your preferred
+                browser for the best performance and compatibility. Some older browsers or mobile
+                browsers with limited WebAssembly support may experience reduced functionality with
+                certain advanced tools.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Can I use SafeConvert on my phone or tablet?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes. SafeConvert is fully responsive and works on smartphones and tablets running
+                iOS or Android. You can use it directly in your mobile browser (Chrome, Safari,
+                Firefox). However, keep in mind that processing very large PDF files on mobile
+                devices may be slower due to limited CPU power and available memory compared to a
+                desktop or laptop computer. For large batch operations, we recommend using a desktop
+                browser.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Can I install SafeConvert as a desktop app?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes. SafeConvert is a Progressive Web App (PWA), which means you can install it on
+                your device directly from your browser. In Chrome or Edge, click the install icon in
+                the address bar or go to the browser menu and select "Install SafeConvert." On
+                mobile, use your browser's "Add to Home Screen" option. Once installed, SafeConvert
+                will appear in your app launcher and can be opened without navigating to the
+                website. The installed app also works offline.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Troubleshooting Section -->
+        <h2 class="text-2xl font-bold text-white mb-6">Troubleshooting</h2>
+        <div class="space-y-4 mb-12">
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Why did my PDF fail to process?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>Failures are rare but can happen for a few reasons:</p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>The PDF might be corrupted or not compliant with the PDF specification.</li>
+                <li>
+                  The file could be encrypted with a password you do not have. Please use our
+                  Decrypt tool first.
+                </li>
+                <li>
+                  The file might be a special "XFA" or dynamic form-based PDF, which some of our
+                  tools cannot process. XFA is a proprietary format created by Adobe that is not
+                  widely supported outside of Adobe products.
+                </li>
+                <li>
+                  Your browser may have run out of memory while processing a very large file. Try
+                  closing other tabs or using a device with more RAM.
+                </li>
+                <li>
+                  The PDF may contain unusual embedded fonts or resources that cause issues with
+                  specific tools. Try a different tool or simplify the document first.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                The page is loading slowly. What can I do?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                SafeConvert loads several JavaScript and WebAssembly libraries to enable client-side
+                processing. On slower internet connections, the initial page load may take a moment.
+                Here are some tips to improve performance:
+              </p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Make sure you are using a modern, up-to-date browser.</li>
+                <li>Close unnecessary browser tabs to free up memory.</li>
+                <li>
+                  After the first visit, the application is cached by a service worker, so
+                  subsequent visits will load much faster.
+                </li>
+                <li>
+                  If you installed SafeConvert as a PWA, the app loads from cache automatically.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                My converted PDF looks different from the original. Why?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                PDF conversion, especially between formats like PDF to Word or PDF to Excel, is
+                inherently imperfect. PDFs are designed as a final-format document with precise
+                visual layout, while formats like DOCX and XLSX are designed for editing with
+                flexible layouts. Some visual differences are expected, particularly with complex
+                layouts, embedded fonts, or non-standard formatting. For the best results, we
+                recommend:
+              </p>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Using simpler source documents with standard fonts.</li>
+                <li>Reviewing the output and making manual adjustments as needed.</li>
+                <li>
+                  For image-based PDFs (scanned documents), try using the OCR tool first to extract
+                  text before converting.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Where are my processed files saved?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                When processing is complete, your browser will prompt you to download the result
+                file. The file is saved to your default downloads folder, or you may be asked to
+                choose a location depending on your browser settings. The processed file is not
+                stored on any server or in the cloud. If you close the browser tab before
+                downloading, the processed file is lost and you will need to process the original
+                file again.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Open Source Section -->
+        <h2 class="text-2xl font-bold text-white mb-6">Open Source and Self-Hosting</h2>
+        <div class="space-y-4 mb-12">
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">Is SafeConvert open source?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes. SafeConvert is licensed under the GNU Affero General Public License v3
+                (AGPL-3.0), which means the complete source code is publicly available on
+                <a
+                  href="https://github.com/Ankit-0202/SafeConvert"
+                  class="text-indigo-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >. Anyone can inspect the code to verify our privacy claims, contribute new
+                features, report bugs, or fork the project. We believe transparency is essential for
+                trust.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">
+                Can I host SafeConvert on my own server?
+              </h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                Yes. We provide detailed deployment guides for hosting SafeConvert on your own
+                infrastructure. Supported platforms include Docker, Vercel, Netlify, Cloudflare
+                Pages, AWS, Nginx, Apache, and Kubernetes. Self-hosting is ideal for organizations
+                with strict data governance requirements or for individuals who want complete
+                control over their tools. Visit our
+                <a
+                  href="https://github.com/Ankit-0202/SafeConvert"
+                  class="text-indigo-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub repository</a
+                >
+                for deployment instructions.
+              </p>
+            </div>
+          </details>
+
+          <details class="bg-gray-800 border border-gray-700 rounded-lg p-5 group">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="font-semibold text-white text-lg">How can I contribute to SafeConvert?</h3>
+              <i data-lucide="plus" class="w-6 h-6 text-indigo-400 icon flex-shrink-0"></i>
+            </summary>
+            <div class="mt-4 text-gray-400">
+              <p>
+                We welcome contributions from the community. You can contribute by submitting bug
+                reports, suggesting features, improving documentation, adding translations, or
+                writing code. Visit our
+                <a
+                  href="https://github.com/Ankit-0202/SafeConvert/issues"
+                  class="text-indigo-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub Issues</a
+                >
+                page to see open issues or create a new one. If you are a developer, feel free to
+                fork the repository and submit a pull request.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto text-center py-12 border-t border-gray-700">
+        <h2 class="text-2xl font-bold text-white mb-4">Still Have Questions?</h2>
+        <p class="text-gray-400 mb-6">
+          If you did not find the answer you were looking for, we are happy to help.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-b from-indigo-500 to-indigo-600 text-white font-semibold hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-200"
+          >
+            Contact Us
+          </a>
+          <a
+            href="https://github.com/Ankit-0202/SafeConvert/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gray-800 text-white font-semibold border border-gray-700 hover:bg-gray-700 transition-all duration-200"
+          >
+            Ask on GitHub
+          </a>
+        </div>
       </div>
     </div>
 
@@ -213,15 +572,23 @@
             "name": "Are my files safe and private?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolutely. This is the most important feature of SafeConvert. All processing happens 100% locally in your web browser. Your files are never uploaded to any server, which means we—or anyone else—can never see them. Your privacy is guaranteed."
+              "text": "Absolutely. All processing happens 100% locally in your web browser. Your files are never uploaded to any server. Your privacy is guaranteed by the fundamental architecture of the application."
             }
           },
           {
             "@type": "Question",
-            "name": "Is SafeConvert really free? What's the catch?",
+            "name": "How is SafeConvert different from other online PDF tools?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, it's completely free, and there's no catch. There are no hidden fees, no subscription plans, no usage limits, and no premium-only features. We believe essential tools should be accessible to everyone."
+              "text": "Most online PDF services require you to upload your files to their servers. SafeConvert is fundamentally different: our tools run entirely within your web browser using JavaScript and WebAssembly. Your files never leave your computer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SafeConvert really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, it is completely free with no hidden fees, subscription plans, usage limits, or premium-only features. SafeConvert is an open-source project sustained through minimal advertising."
             }
           },
           {
@@ -229,7 +596,7 @@
             "name": "Do I need an internet connection to use the tools?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "After you load the website for the first time, most tools will work completely offline! Because all the processing libraries are loaded into your browser, you can disconnect from the internet and continue to merge, split, compress, and edit your PDFs securely. Some niche tools that require external data (like Markdown to PDF with web images) may need a connection."
+              "text": "After you load the website for the first time, most tools work completely offline. SafeConvert includes a service worker that caches the application for offline use."
             }
           },
           {
@@ -237,31 +604,47 @@
             "name": "Are there any file size or usage limitations?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No, we do not impose any artificial limits on file size, the number of files, or how many times you can use a tool. The only practical limitation is the processing power and memory of your own computer, as very large or complex files may take longer to process."
+              "text": "No artificial limits on file size, number of files, or usage. The only practical limitation is the processing power and available memory of your own computer."
             }
           },
           {
             "@type": "Question",
-            "name": "Why did my PDF fail to process?",
+            "name": "Do I need to create an account or sign up?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Failures are rare but can happen for a few reasons: The PDF might be corrupted or not compliant with standard specifications. The file could be encrypted with a password you don't have. Please use our Decrypt tool first. The file might be a special XFA or dynamic form-based PDF, which some of our tools cannot process."
+              "text": "No. SafeConvert requires no account, no email address, and no personal information. Simply visit the website and start using any tool immediately."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you track my activity on SafeConvert?",
+            "name": "Which web browsers are supported?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We care about your privacy. SafeConvert does not track personal information. We use Simple Analytics solely to see anonymous visit counts. This means we can know how many users visit our site, but we never know who you are. Simple Analytics is fully GDPR-compliant and respects your privacy."
+              "text": "SafeConvert works in all modern web browsers that support JavaScript and WebAssembly, including Chrome, Firefox, Edge, Safari, Opera, and Brave."
             }
           },
           {
             "@type": "Question",
-            "name": "What technology does SafeConvert use?",
+            "name": "Can I use SafeConvert on my phone or tablet?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "SafeConvert is built on the power of modern web technologies. We primarily use JavaScript libraries like PDF-lib.js and PDFKit.js that are compiled to run efficiently in your browser via WebAssembly. This allows for powerful, server-like processing without your data ever leaving your machine."
+              "text": "Yes. SafeConvert is fully responsive and works on smartphones and tablets. However, very large files may process slower on mobile devices due to limited CPU and memory."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SafeConvert open source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SafeConvert is licensed under the GNU AGPL-3.0 license. The complete source code is available on GitHub for anyone to inspect, contribute to, or fork."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I host SafeConvert on my own server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We provide deployment guides for Docker, Vercel, Netlify, Cloudflare Pages, AWS, Nginx, Apache, and Kubernetes."
             }
           }
         ]
